@@ -2,30 +2,32 @@ package com.oop2.assignment4;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    private ListView<String> aAnimalCollectionView;
 
-    @FXML
-    protected void onHelloButtonClick() {
+    private CompositeAnimal aCompositeAnimal = new CompositeAnimal();
+
+    public void importAnimals() {
         Enclosure lions = new Enclosure();
         lions.setName("Lions");
-        lions.addAnimal(new Animal("Simba"));
-        lions.addAnimal(new Animal("Mufasa"));
-        lions.addAnimal(new Animal("Nala"));
+        lions.addAnimal(new Lion("Simba"));
+        lions.addAnimal(new Lion("Mufasa"));
+        lions.addAnimal(new Lion("Nala"));
 
         Enclosure tigerHabitat = new Enclosure();
         tigerHabitat.setName("Tigers Habitat");
-        tigerHabitat.addAnimal(new Animal("Rajah"));
-        tigerHabitat.addAnimal(new Animal("Shere Khan"));
+        tigerHabitat.addAnimal(new Tiger("Rajah"));
+        tigerHabitat.addAnimal(new Tiger("Shere Khan"));
 
         Enclosure tigerCubs = new Enclosure();
         tigerCubs.setName("Tiger Cubs");
-        tigerCubs.addAnimal(new Animal("Tala"));
-        tigerCubs.addAnimal(new Animal("Ravi"));
-        tigerCubs.addAnimal(new Animal("Kali"));
-        tigerCubs.addAnimal(new Animal("Indra"));
+        tigerCubs.addAnimal(new Tiger("Tala (Mother)"));
+        tigerCubs.addAnimal(new Tiger("Ravi"));
+        tigerCubs.addAnimal(new Tiger("Kali"));
+        tigerCubs.addAnimal(new Tiger("Indra"));
 
         CompositeAnimal tigers = new CompositeAnimal();
         tigers.setName("Tigers");
@@ -34,13 +36,13 @@ public class HelloController {
 
         Enclosure cougarMedical = new Enclosure();
         cougarMedical.setName("Cougar Medical Care");
-        cougarMedical.addAnimal(new Animal("Sierra"));
+        cougarMedical.addAnimal(new Cougar("Sierra"));
 
         Enclosure cougarHabitat = new Enclosure();
         cougarHabitat.setName("Cougars Habitat");
-        cougarHabitat.addAnimal(new Animal("Rocky"));
-        cougarHabitat.addAnimal(new Animal("Luna"));
-        cougarHabitat.addAnimal(new Animal("Lenny"));
+        cougarHabitat.addAnimal(new Cougar("Rocky"));
+        cougarHabitat.addAnimal(new Cougar("Luna"));
+        cougarHabitat.addAnimal(new Cougar("Lenny"));
 
         CompositeAnimal cougars = new CompositeAnimal();
         cougars.setName("Cougars");
@@ -52,6 +54,8 @@ public class HelloController {
         myCollection.addCollection(lions);
         myCollection.addCollection(tigers);
         myCollection.addCollection(cougars);
+
+        this.aCompositeAnimal.addCollection(myCollection);
     }
 
 
