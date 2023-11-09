@@ -1,5 +1,7 @@
 package com.oop2.assignment4;
 
+import java.util.regex.Pattern;
+
 public class Animal {
     private String aName;
     private Double aAge;
@@ -10,7 +12,11 @@ public class Animal {
     }
 
     void setName(String pName){
-        this.aName = pName;
+       if (isValidName(pName)) {
+           this.aName = pName;
+       } else {
+           throw new IllegalArgumentException("The name should only have letters!");
+       }
     }
 
     String getaName(){
@@ -22,7 +28,11 @@ public class Animal {
     }
 
     public void setWeight(Double aWeight){
-        this.aWeight = aWeight;
+        if (isValidWeight(aWeight) && aWeight >= 0) {
+            this.aWeight = aWeight;
+        } else {
+            throw new IllegalArgumentException("The weight should only have numbers and shouldn't be in the negative");
+        }
     }
 
     public double getAge(){
@@ -30,6 +40,23 @@ public class Animal {
     }
 
     public void setAge(Double aAge){
-        this.aAge = aAge;
+        if (isValidAge(aAge) && aAge >= 0) {
+            this.aAge = aAge;
+        } else {
+            throw new IllegalArgumentException("The age should only have numbers and shouldn't be in the negative");
+        }
+    }
+
+    //Validate the information
+    private boolean isValidName(String name){
+        return Pattern.matches("^[a-zA-Z]+$", name);
+    }
+    private boolean isValidWeight(double weight){
+        String weightStr = String.valueOf(weight);
+        return Pattern.matches("^[0-9]+(\\.[0-9]+)?$", weightStr);
+    }
+    private boolean isValidAge(double age) {
+        String ageSTR = String.valueOf(age);
+        return Pattern.matches("^[0-9]+(\\.[0-9]+)?$", ageSTR);
     }
 }
