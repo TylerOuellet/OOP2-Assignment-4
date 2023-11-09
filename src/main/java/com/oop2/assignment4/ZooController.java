@@ -1,10 +1,18 @@
 package com.oop2.assignment4;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-public class HelloController {
+import java.io.IOException;
+
+public class ZooController {
     @FXML
     private ListView<String> aAnimalCollectionView;
 
@@ -58,6 +66,36 @@ public class HelloController {
         this.aCompositeAnimal.addCollection(myCollection);
     }
 
+    private String aEnclosure;
+    private String pEnclosure;
 
+    public void updateList(){
+
+    }
+
+    public void setEnclosure(String selectedEnclosure){
+        this.aEnclosure = pEnclosure;
+        this.updateList();
+    }
+
+    public String getSelectedEnclosure(){
+        return pEnclosure;
+    }
+
+
+    @FXML
+    protected void onViewButtonClick(ActionEvent pEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
+        Parent view = fxmlLoader.load();
+        ZooController newZooController = fxmlLoader.getController();
+        newZooController.setEnclosure(getSelectedEnclosure());
+        Scene nextScene = new Scene(view, 600, 400);
+        Stage nextStage = new Stage();
+        nextStage.setScene(nextScene);
+        nextStage.setTitle(pEnclosure.setName());
+        nextStage.initModality(Modality.WINDOW_MODAL);
+        nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
+        nextStage.showAndWait();
+    }
 
 }
