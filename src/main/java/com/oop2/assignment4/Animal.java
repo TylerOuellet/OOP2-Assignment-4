@@ -1,5 +1,7 @@
 package com.oop2.assignment4;
 
+import java.util.regex.Pattern;
+
 public class Animal {
     private String aName;
     private Double aAge;
@@ -10,7 +12,11 @@ public class Animal {
     }
 
     void setName(String pName){
-        this.aName = pName;
+       if (isValidName(pName)) {
+           this.aName = pName;
+       } else {
+           throw new IllegalArgumentException("The name should only have letters!");
+       }
     }
 
     String getaName(){
@@ -22,7 +28,11 @@ public class Animal {
     }
 
     public void setWeight(Double aWeight){
-        this.aWeight = aWeight;
+        if (isValidWeight(aWeight) && aWeight >= 0) {
+            this.aWeight = aWeight;
+        } else {
+            throw new IllegalArgumentException("The weight should only have numbers and shouldn't be in the negative");
+        }
     }
 
     public double getAge(){
@@ -30,7 +40,6 @@ public class Animal {
     }
 
     public void setAge(Double aAge){
-<<<<<<< HEAD
         if (isValidAge(aAge) && aAge >= 0) {
             this.aAge = aAge;
         } else {
@@ -50,8 +59,5 @@ public class Animal {
     private boolean isValidAge(double age) {
         String ageSTR = String.valueOf(age);
         return Pattern.matches("^[0-9]+(\\.[0-9]+)?$", ageSTR);
-=======
-        this.aAge = aAge;
->>>>>>> parent of 9ebc0b6 (Added input validation for the animals)
     }
 }
