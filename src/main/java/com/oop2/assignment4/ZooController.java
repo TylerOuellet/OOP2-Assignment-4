@@ -11,13 +11,22 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
-public class ZooController {
+
+public class ZooController implements Initializable{
     @FXML
     private ListView<String> aAnimalCollectionView;
 
     private CompositeAnimal aCompositeAnimal = new CompositeAnimal();
 
+    @Override
+    public void initialize (URL url, ResourceBundle resourceBundle)
+    {
+        importAnimals();
+    }
     public void importAnimals() {
         Enclosure lions = new Enclosure();
         lions.setName("Lions");
@@ -92,7 +101,7 @@ public class ZooController {
         Scene nextScene = new Scene(view, 600, 400);
         Stage nextStage = new Stage();
         nextStage.setScene(nextScene);
-        nextStage.setTitle(pEnclosure.setName());
+        nextStage.setTitle(aCompositeAnimal.showAllAnimals());
         nextStage.initModality(Modality.WINDOW_MODAL);
         nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
         nextStage.showAndWait();

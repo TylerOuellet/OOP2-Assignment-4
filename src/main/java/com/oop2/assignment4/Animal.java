@@ -49,8 +49,9 @@ public class Animal {
 
     //Validate the information
     private boolean isValidName(String name){
-        return Pattern.matches("^[a-zA-Z]+$", name);
+        return Pattern.matches("^[a-zA-Z ()]+$", name);
     }
+
     private boolean isValidWeight(double weight){
         String weightStr = String.valueOf(weight);
         return Pattern.matches("^[0-9]+(\\.[0-9]+)?$", weightStr);
