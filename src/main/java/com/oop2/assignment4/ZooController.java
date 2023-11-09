@@ -1,5 +1,6 @@
 package com.oop2.assignment4;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,22 +12,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
 
-
-public class ZooController implements Initializable{
+public class ZooController {
     @FXML
     private ListView<String> aAnimalCollectionView;
 
     private CompositeAnimal aCompositeAnimal = new CompositeAnimal();
 
-    @Override
-    public void initialize (URL url, ResourceBundle resourceBundle)
-    {
-        importAnimals();
-    }
     public void importAnimals() {
         Enclosure lions = new Enclosure();
         lions.setName("Lions");
@@ -101,10 +93,13 @@ public class ZooController implements Initializable{
         Scene nextScene = new Scene(view, 600, 400);
         Stage nextStage = new Stage();
         nextStage.setScene(nextScene);
-        nextStage.setTitle(aCompositeAnimal.showAllAnimals());
+        nextStage.setTitle(pEnclosure.setName());
         nextStage.initModality(Modality.WINDOW_MODAL);
         nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
         nextStage.showAndWait();
     }
-
+    @FXML
+    protected void onExitButtonClick(ActionEvent pEvent) {
+        Platform.exit();
+    }
 }

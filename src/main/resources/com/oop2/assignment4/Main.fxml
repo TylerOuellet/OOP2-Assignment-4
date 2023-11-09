@@ -16,7 +16,7 @@
          <children>
             <Button mnemonicParsing="false" text="View" fx:id="viewButton" onAction="#onViewButtonClick"/>
             <Button mnemonicParsing="false" text="Back" fx:id="backButton"/>
-            <Button mnemonicParsing="false" text="Exit" fx:id="mainExitButton" />
+            <Button mnemonicParsing="false" text="Exit" fx:id="mainExitButton" onAction="#onExitButtonClick" />
          </children>
       </VBox>
    </children>
