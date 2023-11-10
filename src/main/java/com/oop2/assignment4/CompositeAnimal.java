@@ -1,6 +1,7 @@
 package com.oop2.assignment4;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CompositeAnimal implements  AnimalCollection{
@@ -30,6 +31,16 @@ public class CompositeAnimal implements  AnimalCollection{
 
     @Override
     public String getName() {
-        return null;
+        return compositeAnimal;
+    }
+    public AnimalCollection getIndex(int selectedIndex){
+        return this.aCollections.get(selectedIndex);
+    }
+    public LinkedList<String> compositeList(){
+        LinkedList<String> listed = new LinkedList<>();
+        for (AnimalCollection currentAnimal :aCollections) {
+            listed.add(currentAnimal.getName());
+        }
+        return listed;
     }
 }

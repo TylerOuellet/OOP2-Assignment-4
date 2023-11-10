@@ -7,16 +7,14 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oop2.assignment4.ZooController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oop2.assignment4.ZooController">
    <children>
-      <ListView layoutX="59.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="aAnimalCollectionView" layoutX="59.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="52.0" layoutY="32.0" text="Select an enclosure to view the contents " />
       <VBox alignment="CENTER" layoutX="453.0" layoutY="69.0" prefHeight="200.0" prefWidth="100.0" spacing="40.0">
          <children>
-            <Button mnemonicParsing="false" text="View" fx:id="viewButton" onAction="#onViewButtonClick"/>
-            <Button mnemonicParsing="false" text="Back" fx:id="backButton"/>
-            <Button mnemonicParsing="false" text="Exit" fx:id="mainExitButton" onAction="#onExitButtonClick" />
+            <Button mnemonicParsing="false" onAction="#onViewButtonClick" text="View" />
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButtonClick" text="Back / Exit" />
          </children>
       </VBox>
    </children>
