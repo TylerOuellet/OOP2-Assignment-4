@@ -149,5 +149,3 @@ protected void checkComposite(ActionEvent pEvent) throws IOException{
 
     }
     }
-
-}
