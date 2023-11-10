@@ -1,6 +1,7 @@
 package com.oop2.assignment4;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Enclosure implements AnimalCollection{
@@ -33,5 +34,15 @@ public class Enclosure implements AnimalCollection{
     @Override
     public String getName() {
         return this.aName;
+    }
+    public LinkedList<String> compositeList(){
+        LinkedList<String> listed = new LinkedList<>();
+        for (Animal currentAnimal :aAnimals) {
+            listed.add(currentAnimal.getName());
+        }
+        return listed;
+    }
+    public void removeAnimal(int selectedIndex) {
+        aAnimals.remove(selectedIndex);
     }
 }

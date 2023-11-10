@@ -19,7 +19,7 @@ public class Animal {
        }
     }
 
-    String getaName(){
+    String getName(){
         return aName;
     }
 
