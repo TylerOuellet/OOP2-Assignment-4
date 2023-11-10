@@ -13,7 +13,7 @@ public class Animal {
         this.aName = pName;
     }
 
-    String getaName(){
+    String getName(){
         return aName;
     }
 

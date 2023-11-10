@@ -108,10 +108,10 @@ public class ZooController {
 
         if (aAnimalCollection instanceof Enclosure) {
             Enclosure currentEnclosure = (Enclosure) aAnimalCollection;
-            FXMLLoader fxmlLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(ZooApplication.class.getResource("Enclosure.fxml"));
             Parent view = fxmlLoader.load();
-            ZooController newZooController = fxmlLoader.getController();
-            newZooController.setEnclosure(getSelectedEnclosure());
+            EnclosureController newEnclosureCont = fxmlLoader.getController();
+            newEnclosureCont.setEnclosure(currentEnclosure);
             Scene nextScene = new Scene(view, 600, 400);
             Stage nextStage = new Stage();
             nextStage.setScene(nextScene);
