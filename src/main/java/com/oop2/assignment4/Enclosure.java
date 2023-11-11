@@ -42,7 +42,13 @@ public class Enclosure implements AnimalCollection{
         }
         return listed;
     }
+
     public void removeAnimal(int selectedIndex) {
         aAnimals.remove(selectedIndex);
+    }
+
+    // select the animal from listview
+    public Animal getAnimal(int selectedIndex) {
+        return aAnimals.get(selectedIndex);
     }
 }
