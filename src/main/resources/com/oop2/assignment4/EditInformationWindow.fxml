@@ -48,7 +48,7 @@
             <Label layoutX="72.0" layoutY="63.0" prefHeight="25.0" prefWidth="63.0" text="Name:" />
             <Label layoutX="72.0" layoutY="125.0" prefHeight="25.0" prefWidth="63.0" text="Age:" />
             <Label layoutX="72.0" layoutY="188.0" prefHeight="25.0" prefWidth="63.0" text="Weight:" />
-            <Button layoutX="320.0" layoutY="254.0" mnemonicParsing="false" text="Save" />
+            <Button layoutX="320.0" layoutY="254.0" mnemonicParsing="false" text="Save/Add" />
             <Button layoutX="271.0" layoutY="254.0" mnemonicParsing="false" text="Exit" />
       </children>
     </AnchorPane>

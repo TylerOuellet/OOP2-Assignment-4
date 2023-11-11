@@ -141,11 +141,6 @@ public class ZooController {
 
     public void displayContents(){
         aAnimalCollectionView.getItems().setAll(aCompositeAnimal.compositeList());
-
-
     }
-protected void checkComposite(ActionEvent pEvent) throws IOException{
 
-
-    }
-    }
+}
