@@ -23,8 +23,13 @@ public class Animal {
         return aName;
     }
 
+    // If weight is not numebr or empty, set it to 0
     public double getWeight() {
-        return aWeight;
+        if (this.aWeight != null) {
+            return this.aWeight.doubleValue();
+        } else {
+            return 0;
+        }
     }
 
     public void setWeight(Double aWeight){
@@ -35,8 +40,13 @@ public class Animal {
         }
     }
 
-    public double getAge(){
-        return aAge;
+    // If age is not number or empty, set it to 0
+    public double getAge() {
+        if (this.aAge != null) {
+            return this.aAge.doubleValue();
+        } else {
+            return 0;
+        }
     }
 
     public void setAge(Double aAge){
