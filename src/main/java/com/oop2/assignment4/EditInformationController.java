@@ -1,12 +1,20 @@
 package com.oop2.assignment4;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditInformationController {
+    private EnclosureController enclosureController;
+    public void setEnclosureController(EnclosureController enclosureController) {
+        this.enclosureController = enclosureController;
+    }
+
+
     @FXML
     private TextField nameTextField;
 
@@ -39,16 +47,47 @@ public class EditInformationController {
     }
 
     @FXML
-    private void onSaveButtonClicked() {
-        // Implement logic to save or update animal information
-        // For example, you can update the selectedAnimal object with the new values.
-        // Then close the window or perform any other necessary actions.
+    private void onSaveButtonClick(ActionEvent event) {
+        // Retrieve and update information from your UI elements (text fields, etc.)
+        String newName = nameTextField.getText();
+        double newWeight = Double.parseDouble(weightTextField.getText());
+        double newAge = Double.parseDouble(ageTextField.getText());
 
+        if (selectedAnimal != null) {
+            // Update existing animal
+            selectedAnimal.setName(newName);
+            selectedAnimal.setWeight(newWeight);
+            selectedAnimal.setAge(newAge);
+        } else {
+            // Create a new animal
+            Animal newAnimal = new Animal(newName);
+            newAnimal.setWeight(newWeight);
+            newAnimal.setAge(newAge);
+
+            // Create an instance of Enclosure
+            Enclosure enclosure = new Enclosure();
+
+            // Add the new animal to the enclosure
+            enclosure.addAnimal(newAnimal);
+        }
+
+        showAlert("Animal information updated successfully");
+
+        // Close the window
         closeWindow();
     }
 
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
     @FXML
-    private void onExitButtonClicked() {
+    private void onExitButtonClick(ActionEvent event) {
         closeWindow();
     }
 

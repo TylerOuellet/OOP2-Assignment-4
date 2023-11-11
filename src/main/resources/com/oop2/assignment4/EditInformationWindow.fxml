@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
+
 <VBox xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oop2.assignment4.EditInformationController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="319.0" prefWidth="454.0" VBox.vgrow="ALWAYS">
@@ -16,8 +17,8 @@
             <Label layoutX="72.0" layoutY="63.0" prefHeight="25.0" prefWidth="63.0" text="Name:" />
             <Label layoutX="72.0" layoutY="125.0" prefHeight="25.0" prefWidth="63.0" text="Age:" />
             <Label layoutX="72.0" layoutY="188.0" prefHeight="25.0" prefWidth="63.0" text="Weight:" />
-            <Button layoutX="320.0" layoutY="254.0" mnemonicParsing="false" text="Save/Add" />
-            <Button layoutX="271.0" layoutY="254.0" mnemonicParsing="false" text="Exit"  />
+          <Button layoutX="320.0" layoutY="254.0" mnemonicParsing="false" text="Save/Add" fx:id="saveButton" onAction="#onSaveButtonClick" />
+          <Button layoutX="271.0" layoutY="254.0" mnemonicParsing="false" text="Exit"  fx:id="exitButton" onAction="#onExitButtonClick" />
       </children>
     </AnchorPane>
   </children>
