@@ -9,11 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditInformationController {
-    private EnclosureController enclosureController;
-    public void setEnclosureController(EnclosureController enclosureController) {
-        this.enclosureController = enclosureController;
-    }
-
 
     @FXML
     private TextField nameTextField;
@@ -45,6 +40,18 @@ public class EditInformationController {
             weightTextField.setText(String.valueOf(selectedAnimal.getWeight()));
         }
     }
+    // Add a field for the reference to EnclosureController
+    private EnclosureController enclosureController;
+    private Enclosure enclosure;
+
+    // Add a method to set the EnclosureController reference
+    public void setEnclosureController(EnclosureController enclosureController) {
+        this.enclosureController = enclosureController;
+    }
+
+    public void setEnclosure(Enclosure enclosure) {
+        this.enclosure = enclosure;
+    }
 
     @FXML
     private void onSaveButtonClick(ActionEvent event) {
@@ -59,16 +66,11 @@ public class EditInformationController {
             selectedAnimal.setWeight(newWeight);
             selectedAnimal.setAge(newAge);
         } else {
-            // Create a new animal
-            Animal newAnimal = new Animal(newName);
-            newAnimal.setWeight(newWeight);
-            newAnimal.setAge(newAge);
+            // Create a new animal with name, weight, and age
+            Animal newAnimal = new Animal(newName, newWeight, newAge);
 
-            // Create an instance of Enclosure
-            Enclosure enclosure = new Enclosure();
-
-            // Add the new animal to the enclosure
-            enclosure.addAnimal(newAnimal);
+            // Use the Enclosure instance from EnclosureController
+            enclosureController.getEnclosure().addAnimal(newAnimal);
         }
 
         showAlert("Animal information updated successfully");

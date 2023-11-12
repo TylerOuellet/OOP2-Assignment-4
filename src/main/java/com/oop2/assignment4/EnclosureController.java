@@ -40,9 +40,14 @@ public class EnclosureController {
     }
 
     // Open Third window with add button
-    public void onAddButtonClick(ActionEvent actionEvent) throws IOException {
+    @FXML
+    protected void onAddButtonClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditInformationWindow.fxml"));
         Parent editInfoWindow = fxmlLoader.load();
+
+        EditInformationController editInfoController = fxmlLoader.getController();
+        editInfoController.setEnclosureController(this);
+        editInfoController.setEnclosure(aEnclosure);
 
         Scene editInfoScene = new Scene(editInfoWindow, 400, 300);
         Stage editInfoStage = new Stage();
@@ -77,5 +82,8 @@ public class EnclosureController {
         editInfoStage.initOwner(viewButton.getScene().getWindow());
         editInfoStage.setScene(editInfoScene);
         editInfoStage.showAndWait();
+    }
+    public Enclosure getEnclosure() {
+        return aEnclosure;
     }
 }

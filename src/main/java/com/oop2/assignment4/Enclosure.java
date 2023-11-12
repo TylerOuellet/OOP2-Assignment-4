@@ -18,10 +18,9 @@ public class Enclosure implements AnimalCollection{
         return allAnimals.toString();
     }
 
-    public void addAnimal(Animal pAnimal){
+    public void addAnimal(Animal pAnimal) {
         this.aAnimals.add(pAnimal);
     }
-
     public void removeAnimal(Animal pAnimal){
         this.aAnimals.remove(pAnimal);
     }
