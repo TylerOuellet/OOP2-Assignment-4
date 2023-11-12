@@ -73,7 +73,7 @@ public class EditInformationController {
             enclosureController.getEnclosure().addAnimal(newAnimal);
         }
 
-        showAlert("Animal information updated successfully");
+        showAlert("Cat Enclosure updated successfully");
 
         // Close the window
         closeWindow();
