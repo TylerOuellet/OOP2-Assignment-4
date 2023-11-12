@@ -39,7 +39,7 @@ public class EnclosureController {
         displayContents();
     }
 
-    // Open Third window with add button
+    // Open Third window with add button and update the new information
     @FXML
     protected void onAddButtonClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditInformationWindow.fxml"));

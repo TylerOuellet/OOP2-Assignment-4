@@ -27,6 +27,19 @@ public class EditInformationController {
 
     private Animal selectedAnimal;
 
+    // Add a field for the reference to EnclosureController
+    private EnclosureController enclosureController;
+    private Enclosure enclosure;
+
+    // Add a method to set the EnclosureController reference
+    public void setEnclosureController(EnclosureController enclosureController) {
+        this.enclosureController = enclosureController;
+    }
+
+    public void setEnclosure(Enclosure enclosure) {
+        this.enclosure = enclosure;
+    }
+
     public void setAnimal(Animal animal) {
         this.selectedAnimal = animal;
         displayAnimalInfo();
@@ -40,18 +53,7 @@ public class EditInformationController {
             weightTextField.setText(String.valueOf(selectedAnimal.getWeight()));
         }
     }
-    // Add a field for the reference to EnclosureController
-    private EnclosureController enclosureController;
-    private Enclosure enclosure;
 
-    // Add a method to set the EnclosureController reference
-    public void setEnclosureController(EnclosureController enclosureController) {
-        this.enclosureController = enclosureController;
-    }
-
-    public void setEnclosure(Enclosure enclosure) {
-        this.enclosure = enclosure;
-    }
 
     @FXML
     private void onSaveButtonClick(ActionEvent event) {
@@ -73,7 +75,7 @@ public class EditInformationController {
             enclosureController.getEnclosure().addAnimal(newAnimal);
         }
 
-        showAlert("Cat Enclosure updated successfully");
+        showAlert("Cat Enclosure information updated successfully");
 
         // Close the window
         closeWindow();

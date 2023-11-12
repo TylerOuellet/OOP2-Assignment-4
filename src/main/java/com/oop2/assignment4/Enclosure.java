@@ -12,8 +12,8 @@ public class Enclosure implements AnimalCollection{
     @Override
     public String showAllAnimals() {
         StringBuilder allAnimals = new StringBuilder();
-        for (Animal currenAnimal : aAnimals){
-            allAnimals.append(currenAnimal.toString());
+        for (Animal currentAnimal : aAnimals) {
+            allAnimals.append(currentAnimal.getName()).append("\n");
         }
         return allAnimals.toString();
     }
