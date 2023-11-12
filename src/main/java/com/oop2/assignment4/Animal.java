@@ -11,6 +11,13 @@ public class Animal {
         this.setName(pName);
     }
 
+    // New constructor for name, weight, and age
+    public Animal(String pName, Double pWeight, Double pAge) {
+        this.setName(pName);
+        this.setWeight(pWeight);
+        this.setAge(pAge);
+    }
+
     void setName(String pName){
        if (isValidName(pName)) {
            this.aName = pName;
