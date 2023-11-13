@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ZooController {
+
     @FXML
     public Button backButton;
     @FXML
@@ -141,11 +142,6 @@ public class ZooController {
 
     public void displayContents(){
         aAnimalCollectionView.getItems().setAll(aCompositeAnimal.compositeList());
-
-
     }
-protected void checkComposite(ActionEvent pEvent) throws IOException{
 
-
-    }
-    }
+}

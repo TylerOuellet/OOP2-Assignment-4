@@ -12,16 +12,15 @@ public class Enclosure implements AnimalCollection{
     @Override
     public String showAllAnimals() {
         StringBuilder allAnimals = new StringBuilder();
-        for (Animal currenAnimal : aAnimals){
-            allAnimals.append(currenAnimal.toString());
+        for (Animal currentAnimal : aAnimals) {
+            allAnimals.append(currentAnimal.getName()).append("\n");
         }
         return allAnimals.toString();
     }
 
-    public void addAnimal(Animal pAnimal){
+    public void addAnimal(Animal pAnimal) {
         this.aAnimals.add(pAnimal);
     }
-
     public void removeAnimal(Animal pAnimal){
         this.aAnimals.remove(pAnimal);
     }
@@ -42,7 +41,13 @@ public class Enclosure implements AnimalCollection{
         }
         return listed;
     }
+
     public void removeAnimal(int selectedIndex) {
         aAnimals.remove(selectedIndex);
+    }
+
+    // select the animal from listview
+    public Animal getAnimal(int selectedIndex) {
+        return aAnimals.get(selectedIndex);
     }
 }
