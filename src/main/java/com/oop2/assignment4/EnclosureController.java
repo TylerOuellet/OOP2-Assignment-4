@@ -56,6 +56,8 @@ public class EnclosureController {
         editInfoStage.initOwner(addButton.getScene().getWindow());
         editInfoStage.setScene(editInfoScene);
         editInfoStage.showAndWait();
+
+        displayContents();
     }
 
     // Open Third window with View/Edit button
@@ -82,6 +84,8 @@ public class EnclosureController {
         editInfoStage.initOwner(viewButton.getScene().getWindow());
         editInfoStage.setScene(editInfoScene);
         editInfoStage.showAndWait();
+
+        displayContents();
     }
     public Enclosure getEnclosure() {
         return aEnclosure;

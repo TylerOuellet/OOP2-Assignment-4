@@ -57,6 +57,8 @@ public class EditInformationController {
 
     @FXML
     private void onSaveButtonClick(ActionEvent event) {
+        try {
+
         // Retrieve and update information from your UI elements (text fields, etc.)
         String newName = nameTextField.getText();
         double newWeight = Double.parseDouble(weightTextField.getText());
@@ -79,7 +81,10 @@ public class EditInformationController {
 
         // Close the window
         closeWindow();
+    } catch (NumberFormatException e) {
+        showAlert("Invalid input. Please enter valid values for each field. letters only for names and numbers only for age and weight");
     }
+}
 
 
     private void showAlert(String message) {
