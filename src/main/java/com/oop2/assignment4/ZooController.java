@@ -27,6 +27,7 @@ public class ZooController {
     private CompositeAnimal aCompositeAnimal = new CompositeAnimal();
 
     public void importAnimals() {
+        // initialize data
         Enclosure lions = new Enclosure();
         lions.setName("Lions");
         lions.addAnimal(new Lion("Simba"));
@@ -71,24 +72,14 @@ public class ZooController {
         myCollection.addCollection(tigers);
         myCollection.addCollection(cougars);
 
+        // set the collection and display
         this.aCompositeAnimal.addCollection(myCollection);
         displayContents();
     }
 
-    private String aEnclosure;
-    private String pEnclosure;
-
-
-    public void setEnclosure(String selectedEnclosure){
-        this.aEnclosure = pEnclosure;
-        this.displayContents();
-    }
-
-    public String getSelectedEnclosure(){
-        return pEnclosure;
-    }
     @FXML
     protected void onBackButtonClick(){
+        // Close the window
         Stage currentStage = (Stage) backButton.getScene().getWindow();
         currentStage.close();
     }
@@ -97,13 +88,15 @@ public class ZooController {
     @FXML
     protected void onViewButtonClick(ActionEvent pEvent) throws IOException {
 
-
+        // message if selected index is out of range
         if(aAnimalCollectionView.getSelectionModel().getSelectedIndex() == -1) {
             System.out.println("Select something");
         }
+            //Get the selected animal collection
             AnimalCollection aAnimalCollection = aCompositeAnimal.getIndex(aAnimalCollectionView.getSelectionModel().getSelectedIndex());
 
 
+        // Check what kind of instance is selected and display the corresponding window
         if (aAnimalCollection instanceof Enclosure) {
             Enclosure currentEnclosure = (Enclosure) aAnimalCollection;
             FXMLLoader fxmlLoader = new FXMLLoader(ZooApplication.class.getResource("Enclosure.fxml"));
@@ -129,18 +122,19 @@ public class ZooController {
             stage.setTitle("ZMS");
             stage.setScene(scene);
             stage.show();
-
         }
         else{
             System.out.println("Undefined error");
         }
     }
     public void setComposite(CompositeAnimal compositeAnimal){
+        // set and display
         aCompositeAnimal = compositeAnimal;
         displayContents();
     }
 
     public void displayContents(){
+        //displays all items from the selected collection
         aAnimalCollectionView.getItems().setAll(aCompositeAnimal.compositeList());
     }
 
